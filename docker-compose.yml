@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  beanbotsharp:
+    image: ${DOCKER_REGISTRY-}beanbotsharp
+    build:
+      context: .
+      dockerfile: BeanbotSharp/Dockerfile
+    environment:
+      DISCORD_TOKEN: # bot token goes here
