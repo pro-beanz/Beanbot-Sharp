@@ -40,6 +40,9 @@ namespace BeanbotSharp
                 command.CommandErrored += CmdErroredHandler;
             }
 
+            // Register help formatter
+            commands.SetHelpFormatter<CustomHelpFormatter>();
+
             await discord.StartAsync();
             await Task.Delay(-1);
         }

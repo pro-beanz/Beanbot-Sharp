@@ -9,8 +9,8 @@ namespace BeanbotSharp.Commands
     {
         [
             Command("ping"),
-            Description("Displays the bot's current ping"),
             Cooldown(3, 5, CooldownBucketType.User),
+            Description("Displays the bot's current ping"),
             RequireBotPermissions(DSharpPlus.Permissions.SendMessages)
         ]
         public async Task PingCommand(CommandContext ctx)
