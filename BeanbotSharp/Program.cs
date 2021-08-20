@@ -2,6 +2,7 @@
 using DSharpPlus.CommandsNext;
 using DSharpPlus.CommandsNext.Attributes;
 using DSharpPlus.CommandsNext.Exceptions;
+using GiphyDotNet.Manager;
 using System;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -10,6 +11,8 @@ namespace BeanbotSharp
 {
     class Program
     {
+        internal static Giphy giphy = new Giphy(Environment.GetEnvironmentVariable("GIPHY_KEY"));
+
         static void Main(string[] args)
         {
             MainAsync().GetAwaiter().GetResult();
