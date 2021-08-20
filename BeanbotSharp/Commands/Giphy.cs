@@ -17,9 +17,7 @@ namespace BeanbotSharp.Commands
         public async Task GiphyCommand(CommandContext ctx, [RemainingText, Description("search terms")] string query)
         {
             await ctx.TriggerTypingAsync();
-            var giphy = Program.giphy;
-
-            var result = await giphy.GifSearch(new SearchParameter()
+            var result = await Program.giphy.GifSearch(new SearchParameter()
             {
                 Query = query
             });

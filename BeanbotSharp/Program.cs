@@ -58,9 +58,9 @@ namespace BeanbotSharp
                 if (failedCheck is CooldownAttribute attribute)
                     await e.Context.RespondAsync($"you're executing this command too fast! please wait {Math.Ceiling(attribute.GetRemainingCooldown(e.Context).TotalSeconds)}s before trying again :/");
                 else if (failedCheck is RequireBotPermissionsAttribute)
-                    await e.Context.RespondAsync($"i dont have the proper permissions to do that >.<");
+                    await e.Context.RespondAsync("i dont have the proper permissions to do that >.<");
                 else if (failedCheck is RequireUserPermissionsAttribute)
-                    await e.Context.RespondAsync($"sorry, you arent allowed to do that :(");
+                    await e.Context.RespondAsync("sorry, you arent allowed to do that :(");
             }
         }
     }
