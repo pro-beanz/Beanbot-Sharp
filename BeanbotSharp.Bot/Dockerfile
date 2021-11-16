@@ -5,16 +5,16 @@ WORKDIR /app
 
 FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
 WORKDIR /src
-COPY ["BeanbotSharp/BeanbotSharp.csproj", "BeanbotSharp/"]
-RUN dotnet restore "BeanbotSharp/BeanbotSharp.csproj"
+COPY ["BeanbotSharp.Bot/BeanbotSharp.Bot.csproj", "BeanbotSharp.Bot/"]
+RUN dotnet restore "BeanbotSharp.Bot/BeanbotSharp.Bot.csproj"
 COPY . .
-WORKDIR "/src/BeanbotSharp"
-RUN dotnet build "BeanbotSharp.csproj" -c Release -o /app/build
+WORKDIR "/src/BeanbotSharp.Bot"
+RUN dotnet build "BeanbotSharp.Bot.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "BeanbotSharp.csproj" -c Release -o /app/publish
+RUN dotnet publish "BeanbotSharp.Bot.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "BeanbotSharp.dll"]
+ENTRYPOINT ["dotnet", "BeanbotSharp.Bot.dll"]

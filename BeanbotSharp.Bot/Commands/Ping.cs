@@ -3,7 +3,7 @@ using DSharpPlus.CommandsNext.Attributes;
 using System;
 using System.Threading.Tasks;
 
-namespace BeanbotSharp.Commands
+namespace BeanbotSharp.Bot.Commands
 {
     public class Ping : BaseCommandModule
     {

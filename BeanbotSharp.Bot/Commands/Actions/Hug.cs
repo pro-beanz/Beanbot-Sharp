@@ -3,7 +3,7 @@ using DSharpPlus.CommandsNext.Attributes;
 using DSharpPlus.Entities;
 using System.Threading.Tasks;
 
-namespace BeanbotSharp.Commands.Actions
+namespace BeanbotSharp.Bot.Commands.Actions
 {
     public class Hug : GifAction
     {

@@ -1,11 +1,44 @@
 version: '3.4'
 
 services:
-  beanbotsharp:
-    image: ${DOCKER_REGISTRY-}beanbotsharp
+  beanbotsharp.bot:
+    container_name: bot
+    image: ${DOCKER_REGISTRY-}beanbotsharpbot
     build:
       context: .
-      dockerfile: BeanbotSharp/Dockerfile
+      dockerfile: BeanbotSharp.Bot/Dockerfile
     environment:
-      DISCORD_TOKEN: your discord token here
-      GIPHY_KEY: your giphy api key here
+      DISCORD_TOKEN: 
+      GIPHY_KEY: 
+    depends_on:
+      - beanbotsharp.api
+  beanbotsharp.api:
+    container_name: api
+    image: ${DOCKER_REGISTRY-}beanbotsharpapi
+    build:
+      context: .
+      dockerfile: BeanbotSharp.API/Dockerfile
+    environment:
+      DB_CONNECTION_STRING_RR: User ID=postgres;Password=password;Host=db;Port=5432;Database=rr
+    ports:
+      - '5000:5000'
+    depends_on:
+      db:
+        condition: service_healthy
+  db:
+    container_name: db
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./data/:/var/lib/postgresql/data/:z
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 2s
+      timeout: 5s
+      start_period: 5s
+      retries: 3
