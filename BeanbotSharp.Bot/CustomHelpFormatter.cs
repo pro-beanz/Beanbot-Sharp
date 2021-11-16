@@ -3,7 +3,7 @@ using DSharpPlus.CommandsNext.Converters;
 using DSharpPlus.CommandsNext.Entities;
 using DSharpPlus.Entities;
 
-namespace BeanbotSharp
+namespace BeanbotSharp.Bot
 {
     class CustomHelpFormatter : DefaultHelpFormatter
     {

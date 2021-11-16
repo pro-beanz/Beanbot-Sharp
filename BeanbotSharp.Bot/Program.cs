@@ -7,7 +7,7 @@ using System;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace BeanbotSharp
+namespace BeanbotSharp.Bot
 {
     class Program
     {

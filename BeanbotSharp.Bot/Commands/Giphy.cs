@@ -4,7 +4,7 @@ using GiphyDotNet.Model.Parameters;
 using System;
 using System.Threading.Tasks;
 
-namespace BeanbotSharp.Commands
+namespace BeanbotSharp.Bot.Commands
 {
     public class Giphy : BaseCommandModule
     {

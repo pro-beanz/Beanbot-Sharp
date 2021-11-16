@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "Docker Compose": {
+      "commandName": "DockerCompose",
+      "composeLaunchServiceName": "beanbotsharp.bot",
+      "serviceActions": {
+        "beanbotsharp.bot": "StartDebugging",
+        "db": "StartWithoutDebugging"
+      },
+      "composeLaunchAction": "None",
+      "commandVersion": "1.0"
+    }
+  }
+}
