@@ -364,3 +364,4 @@ FodyWeavers.xsd
 
 # app data
 .data/
+/data/pg_stat
